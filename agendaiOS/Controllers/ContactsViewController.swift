@@ -10,9 +10,9 @@ import UIKit
 
 class ContactsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     let contactService = agendaService()
     var contacts:[Contact] = []
+    var indexContact = 0
     
     @IBOutlet weak var agendaTableView: UITableView!
     
@@ -26,7 +26,6 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         agendaTableView.delegate = self
         agendaTableView.dataSource = self
         agendaTableView.register(UINib(nibName: "ContactTableViewCell", bundle: nil), forCellReuseIdentifier: "ContactTableViewCell")
-
         fetchData()
     }
     
@@ -48,7 +47,7 @@ extension ContactsViewController{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ContactTableViewCell") as? ContactTableViewCell {
-           // cell.configureCell(arrayExtractions[indexPath.row])
+            cell.configureCell(contacts[indexPath.row])
             return cell
         }
         return UITableViewCell()
@@ -59,14 +58,16 @@ extension ContactsViewController{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let contactDetailViewController: ContactDetailViewController = storyboard.instantiateViewController(withIdentifier: "ContactDetailViewController") as! ContactDetailViewController
-//        self.navigationController?.pushViewController(contactDetailViewController, animated: true)
-        
-        
-        let controller = ContactDetailViewController()
-        self.navigationController?.performSegue(withIdentifier: "showDetail", sender: self)
+        indexContact = indexPath.row
+        performSegue(withIdentifier: "showDetail", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ContactDetailViewController {
+            vc.contacts = contacts
+            vc.contact = contacts[indexContact]
+        }
     }
 }
 

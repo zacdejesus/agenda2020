@@ -13,7 +13,7 @@ class Contact: Mappable {
     var name: String?
     var id: String?
     var companyName: String?
-    var isFavorite: String?
+    var isFavorite: Bool?
     var smallImageURL: String?
     var largeImageURL: String?
     var emailAddress: String?
