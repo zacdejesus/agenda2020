@@ -2,7 +2,7 @@
 //  ContactDetailViewController.swift
 //  agendaiOS
 //
-//  Created by Alejandro de jesus on 03/11/2020.
+//  Created by Alejandro de jesus on 04/11/2020.
 //  Copyright © 2020 Alejandro de jesus. All rights reserved.
 //
 
@@ -96,10 +96,9 @@ class ContactDetailViewController: UIViewController, UIScrollViewDelegate {
     
     func setRightBarButton() {
         let image = contact.isFavorite ?? false ? "Favorite — True" : "Favorite — False"
-        
-        let extraInfoBtn = UIBarButtonItem(image: UIImage(named: image), landscapeImagePhone: UIImage(named: image), style: UIBarButtonItem.Style.done, target: self, action: #selector(touchUpInsideInfoBtn(_:)))
-        extraInfoBtn.tintColor = UIColor.init(red: 255/255, green: 210/255, blue: 120/255, alpha: 1)
-        self.navigationItem.rightBarButtonItem = extraInfoBtn
+        let starBtn = UIBarButtonItem(image: UIImage(named: image), landscapeImagePhone: UIImage(named: image), style: UIBarButtonItem.Style.done, target: self, action: #selector(touchUpInsideInfoBtn(_:)))
+        starBtn.tintColor = UIColor.init(red: 255/255, green: 210/255, blue: 120/255, alpha: 1)
+        self.navigationItem.rightBarButtonItem = starBtn
     }
     
     @objc func touchUpInsideInfoBtn(_ barButtonItem: UIBarButtonItem) {

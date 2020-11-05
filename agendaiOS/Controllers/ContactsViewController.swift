@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  agendaiOS
 //
-//  Created by Alejandro de jesus on 02/11/2020.
+//  Created by Alejandro de jesus on 03/11/2020.
 //  Copyright © 2020 Alejandro de jesus. All rights reserved.
 //
 
@@ -47,6 +47,7 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
             self?.dismiss(animated: false, completion: nil)
             })
         {() in
+            //if there is an error, it will throw a button to reaload
             self.dismiss(animated: false, completion: nil)
             let alert = UIAlertController(title: "Error", message: "there has been an error", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "reload", style: .default, handler: { action in
@@ -54,19 +55,21 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
             self.fetchData()
         }
     }
+    
     func loadingView() {
         let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
-
+        
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.style = UIActivityIndicatorView.Style.medium
         loadingIndicator.startAnimating();
-
+        
         alert.view.addSubview(loadingIndicator)
         present(alert, animated: true, completion: nil)
     }
     
     func sortContacts(_ array: [Contact]) {
+        //delete the previus contact to append a clean array
         favoriteContacts.removeAll()
         otherContacts.removeAll()
         for currentContact in array {
@@ -90,12 +93,14 @@ extension ContactsViewController{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ContactTableViewCell") as? ContactTableViewCell {
-
+            //appending the array for sections
+            DispatchQueue.main.async {
                 if indexPath.section == 0 {
                     cell.configureCell(self.favoriteContacts[indexPath.row])
                 } else {
                     cell.configureCell(self.otherContacts[indexPath.row])
                 }
+            }
             return cell
         }
         return UITableViewCell()
@@ -127,6 +132,7 @@ extension ContactsViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ContactDetailViewController {
             vc.contacts = contacts
+            //sending data to ContactDetailViewController
             if isFavorite {
                 vc.contact = favoriteContacts[indexContact]
             } else {
