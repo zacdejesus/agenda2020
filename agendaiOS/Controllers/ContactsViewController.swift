@@ -90,13 +90,12 @@ extension ContactsViewController{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ContactTableViewCell") as? ContactTableViewCell {
-            DispatchQueue.main.async {
+
                 if indexPath.section == 0 {
                     cell.configureCell(self.favoriteContacts[indexPath.row])
                 } else {
                     cell.configureCell(self.otherContacts[indexPath.row])
                 }
-            }
             return cell
         }
         return UITableViewCell()
