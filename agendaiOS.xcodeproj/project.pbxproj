@@ -20,7 +20,7 @@
 		AC659EDB2550F39900F5B84E /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC659EDA2550F39900F5B84E /* Contact.swift */; };
 		AC659EDD2550F50B00F5B84E /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC659EDC2550F50B00F5B84E /* Phone.swift */; };
 		AC659EDF2550F52700F5B84E /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC659EDE2550F52700F5B84E /* Address.swift */; };
-		AC659EE22550F6B700F5B84E /* ConstantsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC659EE12550F6B700F5B84E /* ConstantsAPI.swift */; };
+		AC659EE22550F6B700F5B84E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC659EE12550F6B700F5B84E /* Constants.swift */; };
 		AC659EE42550FD5A00F5B84E /* agendaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC659EE32550FD5A00F5B84E /* agendaService.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +40,7 @@
 		AC659EDA2550F39900F5B84E /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		AC659EDC2550F50B00F5B84E /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		AC659EDE2550F52700F5B84E /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
-		AC659EE12550F6B700F5B84E /* ConstantsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsAPI.swift; sourceTree = "<group>"; };
+		AC659EE12550F6B700F5B84E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AC659EE32550FD5A00F5B84E /* agendaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = agendaService.swift; sourceTree = "<group>"; };
 		B03AD12D6532DE8D85FAD9B9 /* Pods_agendaiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_agendaiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2B39CCD19CB64ADE5C47C9E /* Pods-agendaiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-agendaiOS.release.xcconfig"; path = "Target Support Files/Pods-agendaiOS/Pods-agendaiOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 		AC659EE02550F69E00F5B84E /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				AC659EE12550F6B700F5B84E /* ConstantsAPI.swift */,
+				AC659EE12550F6B700F5B84E /* Constants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -276,7 +276,7 @@
 				AC659EDB2550F39900F5B84E /* Contact.swift in Sources */,
 				AC659EC72550F28A00F5B84E /* ContactsViewController.swift in Sources */,
 				AC659EC32550F28A00F5B84E /* AppDelegate.swift in Sources */,
-				AC659EE22550F6B700F5B84E /* ConstantsAPI.swift in Sources */,
+				AC659EE22550F6B700F5B84E /* Constants.swift in Sources */,
 				AC0F6E0E255228330029302A /* ContactDetailViewController.swift in Sources */,
 				AC0F6E0C2552250E0029302A /* ContactTableViewCell.swift in Sources */,
 				AC659EC52550F28A00F5B84E /* SceneDelegate.swift in Sources */,

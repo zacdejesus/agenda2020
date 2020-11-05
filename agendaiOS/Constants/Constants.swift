@@ -6,8 +6,6 @@
 //  Copyright © 2020 Alejandro de jesus. All rights reserved.
 //
 
-import Foundation
-
 let CAP_DATA_NAME = "name"
 let CAP_DATA_ID = "id"
 let CAP_DATA_COMPANYNAME = "companyName"
@@ -18,6 +16,7 @@ let CAP_DATA_EMAILADDRESS = "emailAddress"
 let CAP_DATA_BIRTHDATE = "birthdate"
 let CAP_DATA_WORK = "work"
 let CAP_DATA_HOME = "home"
+let CAP_DATA_MOBILE = "mobile"
 let CAP_DATA_STREET = "street"
 let CAP_DATA_CITY = "city"
 let CAP_DATA_STATE = "state"
