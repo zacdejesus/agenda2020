@@ -25,7 +25,6 @@ class ContactTableViewCell: UITableViewCell {
     }
     
     func configureCell(_ contact: Contact) {
-        DispatchQueue.main.async {
         do {
             guard let image = contact.smallImageURL else { return }
             let url = URL(string: image)
@@ -34,7 +33,6 @@ class ContactTableViewCell: UITableViewCell {
         } catch {
             self.contactImage.image = UIImage(imageLiteralResourceName: "User Icon Small")
             print(error.localizedDescription)
-        }
         }
         if contact.isFavorite ?? false {
             starImage.image = UIImage(imageLiteralResourceName: "Favorite — True")

@@ -22,6 +22,7 @@
 		AC659EDF2550F52700F5B84E /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC659EDE2550F52700F5B84E /* Address.swift */; };
 		AC659EE22550F6B700F5B84E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC659EE12550F6B700F5B84E /* Constants.swift */; };
 		AC659EE42550FD5A00F5B84E /* agendaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC659EE32550FD5A00F5B84E /* agendaService.swift */; };
+		AC739C4225547500008A98D8 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC739C4125547500008A98D8 /* MainViewPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		AC659EDE2550F52700F5B84E /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		AC659EE12550F6B700F5B84E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AC659EE32550FD5A00F5B84E /* agendaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = agendaService.swift; sourceTree = "<group>"; };
+		AC739C4125547500008A98D8 /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		B03AD12D6532DE8D85FAD9B9 /* Pods_agendaiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_agendaiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2B39CCD19CB64ADE5C47C9E /* Pods-agendaiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-agendaiOS.release.xcconfig"; path = "Target Support Files/Pods-agendaiOS/Pods-agendaiOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +99,7 @@
 				AC659ECB2550F28C00F5B84E /* Assets.xcassets */,
 				AC659ECD2550F28C00F5B84E /* LaunchScreen.storyboard */,
 				AC659ED02550F28C00F5B84E /* Info.plist */,
+				AC739C4125547500008A98D8 /* MainViewPresenter.swift */,
 			);
 			path = agendaiOS;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC659EDF2550F52700F5B84E /* Address.swift in Sources */,
+				AC739C4225547500008A98D8 /* MainViewPresenter.swift in Sources */,
 				AC659EDD2550F50B00F5B84E /* Phone.swift in Sources */,
 				AC659EDB2550F39900F5B84E /* Contact.swift in Sources */,
 				AC659EC72550F28A00F5B84E /* ContactsViewController.swift in Sources */,

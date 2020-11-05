@@ -12,7 +12,6 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     
     let contactService = agendaService()
     var contacts:[Contact] = []
-    var sortContacts:[Contact] = []
     var favoriteContacts:[Contact] = []
     var otherContacts:[Contact] = []
     var indexContact = 0
@@ -38,7 +37,7 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func fetchData() {
         contactService.getContacts(success: { [weak self] (result) in
-            self?.contacts = result.sorted { $0.name! < $1.name! }
+            self?.contacts = result.sorted { $0.name ?? "" < $1.name ?? "" }
             
             if let contacts = self?.contacts {
                 self?.sortContacts(contacts)
@@ -49,6 +48,10 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
             })
         {() in
             self.dismiss(animated: false, completion: nil)
+            let alert = UIAlertController(title: "Error", message: "there has been an error", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "reload", style: .default, handler: { action in
+            }))
+            self.fetchData()
         }
     }
     func loadingView() {
@@ -87,10 +90,12 @@ extension ContactsViewController{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ContactTableViewCell") as? ContactTableViewCell {
-            if indexPath.section == 0 {
-                cell.configureCell(favoriteContacts[indexPath.row])
-            } else {
-                cell.configureCell(otherContacts[indexPath.row])
+            DispatchQueue.main.async {
+                if indexPath.section == 0 {
+                    cell.configureCell(self.favoriteContacts[indexPath.row])
+                } else {
+                    cell.configureCell(self.otherContacts[indexPath.row])
+                }
             }
             return cell
         }
@@ -108,23 +113,14 @@ extension ContactsViewController{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
         label.backgroundColor = .lightGray
-        if section == 0 {
-            label.text = "FAVORITE CONTACTS"
-        } else {
-            label.text = "OTHER CONTACTS"
-        }
+        label.text = section == 0 ? "FAVORITE CONTACTS" : "OTHER CONTACTS"
         return label
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         indexContact = indexPath.row
-        if indexPath.section == 0 {
-            indexContact = indexPath.row
-            isFavorite = true
-        } else {
-            indexContact = indexPath.row
-            isFavorite = false
-        }
+        isFavorite = indexPath.section == 0 ? true : false
+        indexContact = indexPath.row
         performSegue(withIdentifier: "showDetail", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }

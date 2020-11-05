@@ -10,7 +10,7 @@ import Alamofire
 import AlamofireObjectMapper
 
 class agendaService {
-    func getContacts(success: @escaping ([Contact]) -> Void, error errorHandler: @escaping () -> Void) {
+    func getContacts(success: @escaping ([Contact]) -> Void, error: @escaping () -> Void) {
         let request = Alamofire.request(API_URL, encoding: URLEncoding.default)
         request.responseArray { ( response: DataResponse<[Contact]> ) in
                 if let contacts = response.result.value {
